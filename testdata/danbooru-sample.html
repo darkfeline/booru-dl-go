@@ -1,0 +1,585 @@
+<!doctype html>
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"fa197ca248","applicationID":"71204","transactionName":"egxdTUJYXFldQxpADUoXQBZDX19C","queueTime":0,"applicationTime":65,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+  <title>  enoch (soul worker) drawn by noria - Danbooru
+</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="top" title="Danbooru" href="/">
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="wwpBnUsF145ZAZgQ9FClOJCOoNCBJTIzR6Hu5dhgiMVmfYK1Lp9ewFS8WjF8ESeNuTvwIAmZEsoQ/8J84RCe7A==" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="current-user-name" content="Anonymous">
+  <meta name="current-user-id" content="">
+  <meta name="current-user-can-approve-posts" content="false">
+  <meta name="user-comment-threshold" content="0">
+    <meta name="blacklisted-tags" content="spoilers,guro,scat,furry -rating:s">
+  <meta name="enable-js-navigation" content="true">
+  <meta name="new-post-navigation-layout" content="true">
+  <meta name="default-image-size" content="large">
+  <meta name="enable-auto-complete" content="true">
+  <meta name="style-usernames" content="false">
+  <meta name="last-forum-read-at" content="2018-06-02 20:13:52 -0400">
+  <meta name="disable-labeled-saved-searches" content="false">
+  <meta name="disable-post-tooltips" content="false">
+  <meta name="disable-mobile-gestures" content="false"></meta>
+  <link rel="alternate" type="application/atom+xml" title="ATOM" href="/posts.atom" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha256-rByPlHULObEjJ6XQxW/flG2r+22R5dKiAoef+aXWfik=" crossorigin="anonymous" />
+  <link rel="stylesheet" media="screen" href="/assets/application-175d9881c76ce6ef434d052c08d512410bb2ac7499be4516b04fac36ffd458c3.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha256-KM512VNnjElC30ehFwehXjx1YCHPiQkOPmqnrWtpccM=" crossorigin="anonymous"></script>
+  <script src="/assets/application-b57a0c22b0171e5a6372e24fe541a3a5ad554decaddb24a74c3a45a456c8b5b9.js"></script>
+  
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86094-4', {'sampleRate': 1});
+ga('set', 'transport', 'beacon');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+    <script>
+    $(function() {
+      $("#tags").on("keypress autocompleteclose", function(e) {
+        if (!$(this).data("fakeWidth")) {
+          $(this).data("fakeWidth", $('<span>').hide().appendTo(document.body));
+        }
+        var width = $(this).data("fakeWidth").text($(this).val()).css('font', $(this).css("font")).width() + 15;
+        if (width > $(this).width()) {
+          $(this).width(width);
+        }
+      });
+    });
+  </script>
+  <meta name="description" content="1girl, absurdres, animal ears, bangs, bare shoulders, bikini, black hair, blue eyes, blue jacket, blue sky, blurry, blurry background, blush, breasts, cat ear headphones, cat ears, character request, closed mouth, cloud, commentary request, day, depth of field, eyebrows visible through hair, fake animal ears, front-tie bikini">
+  <meta name="tags" content="1girl absurdres animal_ears bangs bare_shoulders bikini black_hair blue_eyes blue_jacket blue_sky blurry blurry_background blush breasts cat_ear_headphones cat_ears character_request closed_mouth cloud commentary_request day depth_of_field eyebrows_visible_through_hair fake_animal_ears front-tie_bikini front-tie_top hair_between_eyes headphones highres jacket long_hair long_sleeves looking_at_viewer noria off_shoulder outdoors see-through side_ponytail sky sleeves_past_wrists small_breasts smile solo soul_worker sparkle standing standing_on_one_leg striped striped_bikini swimsuit thighhighs very_long_hair white_legwear">
+  <meta name="pools" content="">
+  <meta name="post-id" content="3146000">
+  <meta name="post-is-deleted" content="false">
+  <meta name="post-is-flagged" content="false">
+  <meta name="config-large-width" content="850">
+  <meta name="post-has-embedded-notes" content="false">
+  <meta name="always-resize-images" content="true">
+  <meta property="og:title" content="enoch (soul worker) drawn by noria - Danbooru">
+
+    <meta property="og:image" content="https://danbooru.donmai.us/data/sample/sample-7084f5bc4fb04da9974dc50546737c62.jpg">
+
+    <meta name="report-server" content="https://isshiki.donmai.us">
+
+  <!-- Twitter properties -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@teruyo">
+    <meta name="twitter:title" content="enoch (soul worker) drawn by noria - Danbooru">
+    <meta name="twitter:description" content="1girl, absurdres, animal ears, bangs, bare shoulders, bikini, black hair, blue eyes, blue jacket, blue sky, blurry, blurry background, blush, breasts, cat ear headphones, cat ears, character request, closed mouth, cloud, commentary request, day, depth of field, eyebrows visible through hair, fake animal ears, front-tie bikini - Danbooru">
+
+      <meta name="twitter:image" content="https://danbooru.donmai.us/data/sample/sample-7084f5bc4fb04da9974dc50546737c62.jpg">
+
+  <link rel="alternate" type="application/atom+xml" title="Comments for post #3146000" href="https://danbooru.donmai.us/comments.atom?search%5Bpost_id%5D=3146000" />
+
+    <script type="application/ld+json">
+      {
+        "@context" : "http://schema.org",
+        "@type" : "Organization",
+        "name" : "Danbooru",
+        "url" : "https://danbooru.donmai.us/",
+        "sameAs" : [
+          "https://twitter.com/teruyo"
+        ]
+      }
+    </script>
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url" : "https://danbooru.donmai.us/",
+    "potentialAction": [{
+      "@type": "SearchAction",
+      "target": "https://danbooru.donmai.us/posts?tags={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Danbooru",
+    "alternateName": "Find good anime art fast",
+    "url" : "https://danbooru.donmai.us/"
+  }
+  </script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+</head>
+<body lang="en" data-user-id="" data-user-name="Anonymous" data-user-level="0" data-user-level-string="Anonymous" data-user-can-approve-posts="false" data-user-can-upload-free="false" data-user-is-member="false" data-user-is-gold="false" data-user-is-platinum="false" data-user-is-builder="false" data-user-is-moderator="false" data-user-is-blocked="false" data-user-is-admin="false" data-user-is-anonymous="true" data-user-is-banned="false" data-user-is-approver="false" data-user-is-voter="false" data-user-is-super-voter="false" data-user-is-verified="false">
+  <header id="top">
+    
+
+    <h1><a href="/">Danbooru</a></h1>
+    <span id="maintoggle"> ☰ </span> <!-- Maybe icon would be better, I'm not sure -->
+    <nav id="nav">
+      <menu class="main">
+    <li><a class="login" href="/session/new">Sign in</a></li>
+  <li class="current"><a href="/posts">Posts</a></li>
+  <li><a href="/comments?group_by=post">Comments</a></li>
+  <li><a href="/notes">Notes</a></li>
+  <li><a href="/artists">Artists</a></li>
+  <li><a href="/tags">Tags</a></li>
+  <li><a href="/pools">Pools</a></li>
+  <li><a href="/wiki_pages?title=help%3Ahome">Wiki</a></li>
+  <li><a href="/forum_topics">Forum</a></li>
+  <li><a id="site-map-link" href="/static/site_map">More&nbsp;&raquo;</a></li>
+</menu>
+
+        <menu>
+    <li><a href="/posts">Listing</a></li>
+    <li id="secondary-links-posts-upload" class="nonessential"><a href="/uploads/new">Upload</a></li>
+    <li id="secondary-links-posts-hot"><a href="/posts?d=1&amp;tags=order%3Arank">Hot</a></li>
+    <li id="secondary-links-posts-changes" class="nonessential"><a href="/post_versions">Changes</a></li>
+    <li id="secondary-links-posts-help" class="nonessential"><a href="/wiki_pages?title=help%3Aposts">Help</a></li>
+  </menu>
+
+    </nav>
+
+    <div id="more-links" style="display: none;">
+  <ul>
+    <li><a href="/static/site_map">More &raquo;</a></li>
+  </ul>
+</div>
+
+  </header>
+
+  <div id="page">
+
+
+
+
+
+      <div class="ui-corner-all ui-state-highlight" id="tos-notice">
+  <h1><a rel="nofollow" href="/static/terms_of_service?url=%2Fposts%2F3146000">Read the rules before proceeding!</a></h1>
+</div>
+
+
+    <div class="ui-corner-all ui-state-highlight" id="notice" style="display: none;">
+      <span>.</span>
+      <a href="#" id="close-notice-link">close</a>
+    </div>
+
+    <div id="c-posts">
+  <div id="a-show">
+    <aside id="sidebar">
+      <!--
+- path
+- tags
+ -->
+
+<section id="search-box">
+  <h1>Search</h1>
+  <form action="/posts" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+    <input type="text" name="tags" id="tags" size="30" data-autocomplete="tag-query" />
+    <input type="hidden" name="ms" id="ms" value="1" />
+    <input type="submit" value="Go" class="ui-button ui-widget ui-corner-all tiny gradient" data-disable-with="Go" />
+</form></section>
+
+
+
+      <section id="blacklist-box" style="display: none;">
+  <h1>Blacklisted (<a href="/wiki_pages?title=help%3Ablacklists">Help</a>)</h1>
+  <ul id="blacklist-list">
+  </ul>
+  <a id="disable-all-blacklists" style="display: none;" href="#">Disable all</a>
+  <a id="re-enable-all-blacklists" style="display: none;" href="#">Re-enable all</a>
+</section>
+
+
+      <section id="tag-list">
+        <h2 class="copyright-tag-list">Copyrights</h2><ul class="copyright-tag-list"><li class="category-3"><a class="wiki-link" href="/wiki_pages/show_or_new?title=soul_worker">?</a> <a class="search-tag"  href="/posts?tags=soul_worker">soul worker</a> <span class="post-count">115</span></li></ul><h2 class="artist-tag-list">Artists</h2><ul class="artist-tag-list"><li class="category-1"><a class="wiki-link" href="/artists/show_or_new?name=noria">?</a> <a class="search-tag" itemprop="author" href="/posts?tags=noria">noria</a> <span class="post-count">24</span></li></ul><h1 class="general-tag-list">Tags</h1><ul class="general-tag-list"><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=1girl">?</a> <a class="search-tag"  href="/posts?tags=1girl">1girl</a> <span class="post-count">2172k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=animal_ears">?</a> <a class="search-tag"  href="/posts?tags=animal_ears">animal ears</a> <span class="post-count">288k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=bangs">?</a> <a class="search-tag"  href="/posts?tags=bangs">bangs</a> <span class="post-count">282k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=bare_shoulders">?</a> <a class="search-tag"  href="/posts?tags=bare_shoulders">bare shoulders</a> <span class="post-count">232k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=bikini">?</a> <a class="search-tag"  href="/posts?tags=bikini">bikini</a> <span class="post-count">130k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=black_hair">?</a> <a class="search-tag"  href="/posts?tags=black_hair">black hair</a> <span class="post-count">475k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=blue_eyes">?</a> <a class="search-tag"  href="/posts?tags=blue_eyes">blue eyes</a> <span class="post-count">618k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=blue_jacket">?</a> <a class="search-tag"  href="/posts?tags=blue_jacket">blue jacket</a> <span class="post-count">5.2k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=blue_sky">?</a> <a class="search-tag"  href="/posts?tags=blue_sky">blue sky</a> <span class="post-count">28k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=blurry">?</a> <a class="search-tag"  href="/posts?tags=blurry">blurry</a> <span class="post-count">27k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=blurry_background">?</a> <a class="search-tag"  href="/posts?tags=blurry_background">blurry background</a> <span class="post-count">4.6k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=blush">?</a> <a class="search-tag"  href="/posts?tags=blush">blush</a> <span class="post-count">933k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=breasts">?</a> <a class="search-tag"  href="/posts?tags=breasts">breasts</a> <span class="post-count">964k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=cat_ear_headphones">?</a> <a class="search-tag"  href="/posts?tags=cat_ear_headphones">cat ear headphones</a> <span class="post-count">528</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=cat_ears">?</a> <a class="search-tag"  href="/posts?tags=cat_ears">cat ears</a> <span class="post-count">92k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=closed_mouth">?</a> <a class="search-tag"  href="/posts?tags=closed_mouth">closed mouth</a> <span class="post-count">107k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=cloud">?</a> <a class="search-tag"  href="/posts?tags=cloud">cloud</a> <span class="post-count">84k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=day">?</a> <a class="search-tag"  href="/posts?tags=day">day</a> <span class="post-count">97k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=depth_of_field">?</a> <a class="search-tag"  href="/posts?tags=depth_of_field">depth of field</a> <span class="post-count">22k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=eyebrows_visible_through_hair">?</a> <a class="search-tag"  href="/posts?tags=eyebrows_visible_through_hair">eyebrows visible through hair</a> <span class="post-count">180k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=fake_animal_ears">?</a> <a class="search-tag"  href="/posts?tags=fake_animal_ears">fake animal ears</a> <span class="post-count">14k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=front-tie_bikini">?</a> <a class="search-tag"  href="/posts?tags=front-tie_bikini">front-tie bikini</a> <span class="post-count">4.9k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=front-tie_top">?</a> <a class="search-tag"  href="/posts?tags=front-tie_top">front-tie top</a> <span class="post-count">16k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=hair_between_eyes">?</a> <a class="search-tag"  href="/posts?tags=hair_between_eyes">hair between eyes</a> <span class="post-count">131k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=headphones">?</a> <a class="search-tag"  href="/posts?tags=headphones">headphones</a> <span class="post-count">40k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=jacket">?</a> <a class="search-tag"  href="/posts?tags=jacket">jacket</a> <span class="post-count">128k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=long_hair">?</a> <a class="search-tag"  href="/posts?tags=long_hair">long hair</a> <span class="post-count">1428k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=long_sleeves">?</a> <a class="search-tag"  href="/posts?tags=long_sleeves">long sleeves</a> <span class="post-count">261k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=looking_at_viewer">?</a> <a class="search-tag"  href="/posts?tags=looking_at_viewer">looking at viewer</a> <span class="post-count">703k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=off_shoulder">?</a> <a class="search-tag"  href="/posts?tags=off_shoulder">off shoulder</a> <span class="post-count">38k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=outdoors">?</a> <a class="search-tag"  href="/posts?tags=outdoors">outdoors</a> <span class="post-count">77k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=see-through">?</a> <a class="search-tag"  href="/posts?tags=see-through">see-through</a> <span class="post-count">37k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=side_ponytail">?</a> <a class="search-tag"  href="/posts?tags=side_ponytail">side ponytail</a> <span class="post-count">74k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=sky">?</a> <a class="search-tag"  href="/posts?tags=sky">sky</a> <span class="post-count">111k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=sleeves_past_wrists">?</a> <a class="search-tag"  href="/posts?tags=sleeves_past_wrists">sleeves past wrists</a> <span class="post-count">24k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=small_breasts">?</a> <a class="search-tag"  href="/posts?tags=small_breasts">small breasts</a> <span class="post-count">128k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=smile">?</a> <a class="search-tag"  href="/posts?tags=smile">smile</a> <span class="post-count">861k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=solo">?</a> <a class="search-tag"  href="/posts?tags=solo">solo</a> <span class="post-count">1801k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=sparkle">?</a> <a class="search-tag"  href="/posts?tags=sparkle">sparkle</a> <span class="post-count">34k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=standing">?</a> <a class="search-tag"  href="/posts?tags=standing">standing</a> <span class="post-count">171k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=standing_on_one_leg">?</a> <a class="search-tag"  href="/posts?tags=standing_on_one_leg">standing on one leg</a> <span class="post-count">15k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=striped">?</a> <a class="search-tag"  href="/posts?tags=striped">striped</a> <span class="post-count">112k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=striped_bikini">?</a> <a class="search-tag"  href="/posts?tags=striped_bikini">striped bikini</a> <span class="post-count">9.6k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=swimsuit">?</a> <a class="search-tag"  href="/posts?tags=swimsuit">swimsuit</a> <span class="post-count">190k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=thighhighs">?</a> <a class="search-tag"  href="/posts?tags=thighhighs">thighhighs</a> <span class="post-count">491k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=very_long_hair">?</a> <a class="search-tag"  href="/posts?tags=very_long_hair">very long hair</a> <span class="post-count">246k</span></li><li class="category-0"><a class="wiki-link" href="/wiki_pages/show_or_new?title=white_legwear">?</a> <a class="search-tag"  href="/posts?tags=white_legwear">white legwear</a> <span class="post-count">115k</span></li></ul><h2 class="meta-tag-list">Meta</h2><ul class="meta-tag-list"><li class="category-5"><a class="wiki-link" href="/wiki_pages/show_or_new?title=absurdres">?</a> <a class="search-tag"  href="/posts?tags=absurdres">absurdres</a> <span class="post-count">224k</span></li><li class="category-5"><a class="wiki-link" href="/wiki_pages/show_or_new?title=character_request">?</a> <a class="search-tag"  href="/posts?tags=character_request">character request</a> <span class="post-count">20k</span></li><li class="category-5"><a class="wiki-link" href="/wiki_pages/show_or_new?title=commentary_request">?</a> <a class="search-tag"  href="/posts?tags=commentary_request">commentary request</a> <span class="post-count">203k</span></li><li class="category-5"><a class="wiki-link" href="/wiki_pages/show_or_new?title=highres">?</a> <a class="search-tag"  href="/posts?tags=highres">highres</a> <span class="post-count">1101k</span></li></ul>
+      </section>
+
+      <section id="post-information">
+        <h1>Information</h1>
+        <ul itemscope itemtype="http://schema.org/ImageObject">
+  <li>ID: 3146000</li>
+  <li>Top Tagger: <a class="user-builder user-post-approver user-post-uploader" href="/users/430030">Unbreakable</a></li>
+  <li>
+    Date: <a rel="nofollow" href="/posts?tags=date%3A2018-06-02"><time datetime="2018-06-02T19:22-04:00" title="2018-06-02 19:22:18 -0400">about 1 hour ago</time></a>
+    <meta itemprop="uploadDate" content="2018-06-02T19:22:18-04:00">
+  </li>
+  <li>
+    Size: <a href="https://danbooru.donmai.us/data/__enoch_soul_worker_drawn_by_noria__7084f5bc4fb04da9974dc50546737c62.jpg">2.64 MB</a>
+      (<span itemprop="width">2159</span>x<span itemprop="height">2941</span>)
+  </li>
+  <li>Source: <a href="http://www.pixiv.net/member_illust.php?mode=medium&amp;illust_id=69050145">pixiv.net/member_...</a></li>
+  <li>Rating: Safe</li>
+  <li>Score: <span id="score-for-post-3146000">2</span> </li>
+  <li>Favorites: <span id="favcount-for-post-3146000">2</span>
+</li>
+  <li>
+    Status:
+
+
+
+
+      Active
+  </li>
+</ul>
+
+      </section>
+
+      <section id="post-options">
+        <h1>Options</h1>
+        <ul>
+  <li><a id="image-resize-to-window-link" href="#">Resize to window</a></li>
+
+</ul>
+
+      </section>
+
+      
+    </aside>
+
+    <section id="content">
+        
+
+      
+
+
+
+
+
+
+  <div class="ui-corner-all ui-state-highlight notice notice-resized" id="image-resize-notice" style="">
+    <span>Resized to 39% of original (<a id="image-resize-link" href="https://danbooru.donmai.us/data/__enoch_soul_worker_drawn_by_noria__7084f5bc4fb04da9974dc50546737c62.jpg">view original</a>)</span>
+    <span style="display: none;">Loading...</span>
+  </div>
+
+<div id="detailed-rejection-dialog" title="Detailed Rejection" style="display: none;">
+  <p>You can supply a short message to the uploader explaining why you rejected this upload.</p>
+
+  <form class="simple_form new_post_disapproval" id="new_post_disapproval" novalidate="novalidate" action="/moderator/post/disapproval" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+    <input value="x" type="hidden" name="post_disapproval[post_id]" id="post_disapproval_post_id" />
+    <div class="input select optional post_disapproval_reason"><label class="select optional" for="post_disapproval_reason">Reason</label><select class="select optional" name="post_disapproval[reason]" id="post_disapproval_reason"><option value=""></option>
+<option value="breaks_rules">Breaks Rules</option>
+<option value="poor_quality">Poor Quality</option>
+<option value="disinterest">No interest</option></select></div>
+    <div class="input string optional post_disapproval_message"><label class="string optional" for="post_disapproval_message">Message</label><input class="string optional" type="text" name="post_disapproval[message]" id="post_disapproval_message" /></div>
+</form></div>
+
+
+
+      <section itemscope itemtype="http://schema.org/ImageObject" id="image-container" 
+      data-id="3146000"
+      data-has-sound="false"
+      data-tags="1girl absurdres animal_ears bangs bare_shoulders bikini black_hair blue_eyes blue_jacket blue_sky blurry blurry_background blush breasts cat_ear_headphones cat_ears character_request closed_mouth cloud commentary_request day depth_of_field eyebrows_visible_through_hair fake_animal_ears front-tie_bikini front-tie_top hair_between_eyes headphones highres jacket long_hair long_sleeves looking_at_viewer noria off_shoulder outdoors see-through side_ponytail sky sleeves_past_wrists small_breasts smile solo soul_worker sparkle standing standing_on_one_leg striped striped_bikini swimsuit thighhighs very_long_hair white_legwear"
+      data-pools=""
+      data-approver-id=""
+      data-rating="s"
+      data-width="2159"
+      data-height="2941"
+      data-flags=""
+      data-parent-id=""
+      data-has-children="false"
+      data-score="2"
+      data-views=""
+      data-fav-count="2"
+      data-pixiv-id="69050145"
+      data-file-ext="jpg"
+      data-source="https://i.pximg.net/img-original/img/2018/06/03/07/58/08/69050145_p0.jpg"
+      data-top-tagger="430030"
+      data-uploader-id="430030"
+      data-normalized-source="http://www.pixiv.net/member_illust.php?mode=medium&amp;illust_id=69050145"
+      data-is-favorited="false"
+    
+        data-md5="7084f5bc4fb04da9974dc50546737c62"
+        data-file-url="https://danbooru.donmai.us/data/7084f5bc4fb04da9974dc50546737c62.jpg"
+        data-large-file-url="https://danbooru.donmai.us/data/sample/sample-7084f5bc4fb04da9974dc50546737c62.jpg"
+        data-preview-file-url="https://danbooru.donmai.us/data/preview/7084f5bc4fb04da9974dc50546737c62.jpg"
+      >
+        <div id="note-container"></div>
+        <div id="note-preview"></div>
+          <img width="850" height="1157" id="image" data-original-width="2159" data-original-height="2941" data-large-width="850" data-large-height="1157" data-tags="1girl absurdres animal_ears bangs bare_shoulders bikini black_hair blue_eyes blue_jacket blue_sky blurry blurry_background blush breasts cat_ear_headphones cat_ears character_request closed_mouth cloud commentary_request day depth_of_field eyebrows_visible_through_hair fake_animal_ears front-tie_bikini front-tie_top hair_between_eyes headphones highres jacket long_hair long_sleeves looking_at_viewer noria off_shoulder outdoors see-through side_ponytail sky sleeves_past_wrists small_breasts smile solo soul_worker sparkle standing standing_on_one_leg striped striped_bikini swimsuit thighhighs very_long_hair white_legwear" alt="enoch (soul worker) drawn by noria" data-uploader="Unbreakable" data-rating="s" data-flags="" data-has-children="false" data-has-active-children="false" data-score="2" data-fav-count="2" itemprop="contentUrl" src="https://danbooru.donmai.us/data/sample/__enoch_soul_worker_drawn_by_noria__sample-7084f5bc4fb04da9974dc50546737c62.jpg" />
+
+      </section>
+
+      <div class="fav-buttons">
+        <form id="add-fav-button" class="button_to" method="post" action="/favorites?post_id=3146000" data-remote="true"><input class="ui-button ui-widget ui-corner-all gradient" data-disable-with="Favoriting..." type="submit" value="Favorite" /><input type="hidden" name="authenticity_token" value="Dy+dFk+mf+eriWLzhbxRuq3CQi57QyeH/6BdjEg0/sqT3cvyPTZKy7cgYMBUvNi80+KXTTeZYFsyreLU9R4zgA==" /></form>
+        <form id="remove-fav-button" class="button_to" method="post" action="/favorites/3146000" data-remote="true"><input type="hidden" name="_method" value="delete" /><input class="ui-button ui-widget ui-corner-all gradient" data-disable-with="Unfavoriting..." type="submit" value="Unfavorite" /><input type="hidden" name="authenticity_token" value="pgiAu8J1Wr7ancWAOTtplaiPEESCR5Xd93FZhk7DSZ8AGnsBfpJVqc3Jn24G2ng1LyG2rtdkmEd6agBuL1Febw==" /></form>
+      </div>
+
+      <section id="mark-as-translated-section" style="display: none;">
+        <form class="simple_form" action="/posts/3146000/mark_as_translated" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="dy62pWjXuoXMCpQfzJgst7mxGM8HsNFMUGpYYu7EQjBTwK9TkhP6xzsBGzVYjIvZVyfdASrE5Z9Hcq4FRxpjmQ==" />
+          <input type="hidden" name="tags_query" id="tags_query" />
+          <input type="hidden" name="pool_id" id="pool_id" />
+
+          <fieldset>
+            <label for="post_check_translation">
+              <input name="post[check_translation]" type="hidden" value="0" /><input type="checkbox" value="1" name="post[check_translation]" id="post_check_translation" />
+              Check translation
+            </label>
+
+            <label for="post_partially_translated">
+              <input name="post[partially_translated]" type="hidden" value="0" /><input type="checkbox" value="1" name="post[partially_translated]" id="post_partially_translated" />
+              Partially translated
+            </label>
+          </fieldset>
+
+          <div class="input">
+            <input type="submit" name="commit" value="Mark as translated" data-disable-with="Mark as translated" />
+          </div>
+</form>      </section>
+
+
+          <div id="nav-links" class="ui-corner-all nav-notice">
+      <div id="search-seq-nav">
+  <ul>
+    <li class="active">
+      <a rel="prev nofollow" class="prev" href="/posts/3146000/show_seq?seq=prev">&lsaquo;&thinsp;prev</a>
+      <span class="search-name">Search: status:any</span>
+      <a rel="next nofollow" class="next" href="/posts/3146000/show_seq?seq=next">next&thinsp;&rsaquo;</a>
+    </li>
+  </ul>
+</div>
+
+
+
+  </div>
+
+
+      <menu id="post-sections">
+        <li><a href="#comments">Comments</a></li>
+        <li><a href="#share">Share</a></li>
+      </menu>
+
+      <section id="comments">
+          <h2>Before commenting, read the <a href="/wiki_pages?search%5Btitle%5D=howto%3Acomment">how to comment guide</a>.</h2>
+        <div class="comments-for-post" data-post-id="3146000">
+
+  <div class="row notices">
+  </div>
+
+  <div class="list-of-comments">
+        <p>There are no comments.</p>
+  </div>
+
+  <div class="clearfix"></div>
+
+</div>
+
+      </section>
+
+      <section id="notes" style="display: none;">
+      </section>
+
+
+      <section id="share" style="display: none;">
+        <div style="height: 25em;">
+  <!-- AddThis Button BEGIN -->
+  <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+  <a class="addthis_button_twitter"></a>
+  <a class="addthis_button_facebook"></a>
+  <a class="addthis_button_tumblr"></a>
+  <a class="addthis_button_compact"></a>
+  <a class="addthis_counter addthis_bubble_style"></a>
+  </div>
+  <script type="text/javascript">
+    var addthis_config = {"data_track_addressbar": false, "pubid": "ra-4f8dbf8a41066ac7"};
+    var addthis_share = {
+      "url":"https://danbooru.donmai.us/posts/3146000",
+      "title": "enoch (soul worker) drawn by noria"
+    };
+  </script>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#async=1"></script>
+
+  <!-- AddThis Button END -->
+</div>
+
+
+      </section>
+    </section>
+  </div>
+
+  <div id="flag-dialog" class="prose" title="Flag post" style="display: none;">
+    <p>If you believe a post violates the rules or is low quality, you may flag it for review. This sends it to the <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=about%3Amod_queue">moderation queue</a>, where it has three days to be re-approved before it is deleted. See <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=howto%3Aflag">howto:flag</a> to learn more.</p><p><strong>You must give a valid reason for flagging a post</strong>. Explain concisely why a post should be deleted. The following are some common reasons to flag a post:</p><ul><li>Off-topic: Not anime-related, such as <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=photo">photos</a> of American porn actresses.</li><li><a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=3rd_party_watermark">3rd party watermarks</a>: Text or logo inserted by someone besides the original artist</li><li>Poor quality: Exhibits unacceptably <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=bad_anatomy">bad anatomy</a>, <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=bad_perspective">bad perspective</a>, or <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=bad_proportions">bad proportions</a>.</li><li>Image sample: See <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=image_sample">image sample</a> for information.</li><li>Manga: Multiple pages of a manga, <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=doujinshi">doujinshi</a>, or <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=comic">comic</a> that don't stand up to individual scrutiny</li><li>Fake <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=hard_translated">hard translations</a>: Posts that have been edited with false or poor quality translations</li></ul><p>The following are <strong>NOT</strong> valid reasons for flagging a post:</p><ul><li><a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=duplicate">Duplicate</a> posts: <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=help%3Apost_relationships">parent</a> them to their superior posts instead.</li><li><a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=banned_artist">Banned artist</a>: request that a member of site staff ban this post instead in <a class="dtext-link dtext-id-link dtext-forum-topic-id-link" href="/forum_topics/10525">topic #10525</a>.</li><li>Objectionable content that does NOT violate <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=howto%3Aupload">Danbooru&apos;s posting guidelines</a> or <a class="dtext-link dtext-external-link" href="/static/terms_of_service">Terms of Service</a>, such as <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=loli">loli</a> or <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=shota">shota</a>.</li></ul>
+
+<!-- XXX dtext_field expects there to be a `post_flag` instance variable. -->
+<form class="simple_form new_post_flag" id="new_post_flag" novalidate="novalidate" action="/post_flags.js" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" value="3146000" name="post_flag[post_id]" id="post_flag_post_id" />
+  <!--
+- name
+- input_id
+- input_name
+- preview_id
+- value
+- type
+ -->
+<div class="input text optional ">
+  <label class="text optional" for="post_flag_reason">Reason</label>
+
+  <div class="dtext-previewable">
+      <input type="text" id="post_flag_reason" class="text optional" name="post_flag[reason]" value="">
+    <div id="dtext-preview-for-post-flag" class="dtext-preview prose"></div>
+  </div>
+   <span class="hint">All text is formatted using <a target="_blank" href="/wiki_pages?title=help%3Adtext">DText</a></span>
+</div>
+
+  <input type="submit" name="commit" value="Preview" data-input-id="post_flag_reason" data-preview-id="dtext-preview-for-post-flag" data-disable-with="Preview" />
+</form>
+  </div>
+
+  <div id="appeal-dialog" class="prose" title="Appeal post" style="display: none;">
+    <p>If this post was automatically deleted, <strong>then it means that the <a class="dtext-link dtext-external-link" href="/users?search%5bcan_approve_posts%5d=true">janitors</a> that reviewed it thought it didn't belong on this site</strong>. If you still believe this image was wrongfully deleted, then you can appeal its deletion.</p><p>All users are limited to one appeal a day. For more details, please read the <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=help%3Adeletion_appeals">wiki</a>.</p>
+
+<!-- XXX dtext_field expects there to be a `post_appeal` instance variable. -->
+<form class="simple_form new_post_appeal" id="new_post_appeal" novalidate="novalidate" action="/post_appeals.js" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" value="3146000" name="post_appeal[post_id]" id="post_appeal_post_id" />
+  <!--
+- name
+- input_id
+- input_name
+- preview_id
+- value
+- type
+ -->
+<div class="input text optional ">
+  <label class="text optional" for="post_appeal_reason">Reason</label>
+
+  <div class="dtext-previewable">
+      <textarea id="post_appeal_reason" class="text optional" rows="20" name="post_appeal[reason]" cols="30"></textarea>
+    <div id="dtext-preview-for-post-appeal" class="dtext-preview prose"></div>
+  </div>
+   <span class="hint">All text is formatted using <a target="_blank" href="/wiki_pages?title=help%3Adtext">DText</a></span>
+</div>
+
+  <input type="submit" name="commit" value="Preview" data-input-id="post_appeal_reason" data-preview-id="dtext-preview-for-post-appeal" data-disable-with="Preview" />
+</form>
+  </div>
+
+  <div id="replace-image-dialog" class="prose" title="Replace image" style="display: none;">
+    <p>This feature will allow you to replace a post's image with another image in place. If you are replacing something other than a sample → full-size image, <strong>you must be careful</strong>. See <a class="dtext-link dtext-id-link dtext-forum-topic-id-link" href="/forum_topics/14063">topic #14063</a> for further discussion.</p><p><strong>What is acceptable:</strong></p><ul><li><a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=image_sample">Image sample</a> → full-size image. Most common use case.</li><li>Identical image with missing or corrupted metadata → image with correct metadata (<a class="dtext-link dtext-id-link dtext-post-id-link" href="/posts/2196287">post #2196287</a>).</li><li>Identical image with worse lossless compression → image with better compression (<a class="dtext-link dtext-id-link dtext-post-id-link" href="/posts/2766377">post #2766377</a>).</li><li><a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=image_sample">Sample</a> with already uploaded full-size → inferior identical image from alternate source. This serves as a way to grace posts (<a class="dtext-link dtext-id-link dtext-post-id-link" href="/posts/2753690">post #2753690</a>).</li><li>Images uploaded on accident by a user (corrupted images, incorrect tweets, pre-revisions, etc.). If done in a timely enough manner, this should also be appropriate to use for that purpose. Fixing the order is also permitted to some extent.</li></ul><p><strong>What is typically discouraged:</strong></p><ul><li>Identical images from different sources (unless you can confirm that an artist uploaded a sample to one site and not another). See <a class="dtext-link dtext-id-link dtext-forum-topic-id-link" href="/forum_topics/14595">topic #14595</a>.</li><li>Images of non-identical filetypes that <em>aren't</em> samples.</li><ul><li>GIF/MP4 file → Ugoira. Ugoiras are <strong>not</strong> considered necessarily better than their GIF/MP4 counterparts (<a class="dtext-link dtext-id-link dtext-post-id-link" href="/posts/2625276">post #2625276</a>). Upload it separately.</li></ul><li>Lossy <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=help%3Athird-party_edit">third-party</a> file conversions (png → jpg) or <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=help%3Athird-party_edit">third-party</a> <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=lossy-lossless">lossy-lossless</a> conversions (jpg → png). Upload the original, and flag or delete the inferior counterpart.</li><li>Non-identical images. Do not replace an image with its <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=revision">revision</a>, or a <a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=work_in_progress">work in progress</a>/<a class="dtext-link dtext-wiki-link" href="/wiki_pages/show_or_new?title=sketch">sketch</a> with its finished rendition; upload it in a separate post.</li></ul>
+
+<form class="simple_form new_post_replacement" id="new_post_replacement" novalidate="novalidate" enctype="multipart/form-data" action="/post_replacements?post_id=3146000" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="P2UQpz7+7grqc2krDcpF341Gbp0luqlMUcEanIA3fdb5ynNBVAw/zmftAMbq6eRvLlF2oruBsDOrRi7SkquaJw==" />
+  <div class="input file optional post_replacement_replacement_file"><label class="file optional" for="post_replacement_replacement_file">File</label><input class="file optional" type="file" name="post_replacement[replacement_file]" id="post_replacement_replacement_file" /></div>
+  <div class="input string optional post_replacement_replacement_url field_with_hint"><label class="string optional" for="post_replacement_replacement_url">Replacement URL</label><input value="http://www.pixiv.net/member_illust.php?mode=medium&amp;illust_id=69050145" class="string optional" type="text" name="post_replacement[replacement_url]" id="post_replacement_replacement_url" /><span class="hint">The source URL to download the replacement from.</span></div>
+  <div class="input string optional post_replacement_final_source field_with_hint"><label class="string optional" for="post_replacement_final_source">Final Source</label><input value="https://i.pximg.net/img-original/img/2018/06/03/07/58/08/69050145_p0.jpg" class="string optional" type="text" name="post_replacement[final_source]" id="post_replacement_final_source" /><span class="hint">If present, the source field will be changed to this after replacement.</span></div>
+  <div class="input text optional post_replacement_tags"><label class="text optional" for="post_replacement_tags">Tags</label><textarea data-autocomplete="tag-edit" class="text optional" name="post_replacement[tags]" id="post_replacement_tags"></textarea></div>
+</form>
+  </div>
+
+  <div id="add-to-pool-dialog" title="Add to pool" style="display: none;">
+    <form class="simple_form" format="js" action="/pool_element" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" name="post_id" id="post_id" value="3146000" />
+
+  <div class="input">
+    <label>Pool Name</label>
+    <span id="pool-name-container"><input type="text" name="pool_name" id="pool_name" value="" size="20" data-autocomplete="pool" /></span>
+    <span id="pool-name-hint" class="hint">Search for a pool containing (<a data-remote="true" href="/pool_element/all_select">see full list</a>)</span>
+  </div>
+
+  <div class="input">
+    <input type="submit" name="commit" value="Submit" data-disable-with="Submit" />
+  </div>
+</form>
+
+  </div>
+
+  <div id="add-commentary-dialog" title="Add artist commentary" style="display: none;">
+    <p>If the artist of this image posted some interesting additional information about this work, you can copy it here. <a href="/wiki_pages?search%5Btitle%5D=help%3Aartist_commentary">View help.</a></p>
+
+<form id="fetch-commentary" class="simple_form">
+  <div class="input">
+    <label>Copy from</label>
+    <select name="commentary_source_type" id="commentary_source_type"><option value="Source">Source</option>
+<option value="Post">Post</option></select>
+    <input type="text" name="commentary_source" id="commentary_source" value="https://i.pximg.net/img-original/img/2018/06/03/07/58/08/69050145_p0.jpg" />
+    <input type="text" name="commentary_post_id" id="commentary_post_id" style="display: none;" />
+    <button name="button" type="submit">Fetch</button>
+  </div>
+</form>
+
+<form id="edit-commentary" class="simple_form" action="/artist_commentaries/create_or_update.js" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" />
+  <input value="3146000" type="hidden" name="artist_commentary[post_id]" id="artist_commentary_post_id" />
+
+  <div class="input">
+    <label for="artist_commentary_original_title">Original title</label>
+    <input type="text" name="artist_commentary[original_title]" id="artist_commentary_original_title" />
+  </div>
+
+  <div class="input">
+    <label for="artist_commentary_original_description">Original description</label>
+    <textarea name="artist_commentary[original_description]" id="artist_commentary_original_description" cols="40" rows="6"></textarea>
+  </div>
+
+  <div class="input">
+    <label for="artist_commentary_translated_title">Translated title</label>
+    <input type="text" name="artist_commentary[translated_title]" id="artist_commentary_translated_title" />
+  </div>
+
+  <div class="input">
+    <label for="artist_commentary_translated_description">Translated description</label>
+    <textarea name="artist_commentary[translated_description]" id="artist_commentary_translated_description" cols="40" rows="6"></textarea>
+  </div>
+
+    <div class="input">
+      <label>
+        <input name="artist_commentary[add_commentary_tag]" type="hidden" value="0" /><input type="checkbox" value="1" name="artist_commentary[add_commentary_tag]" id="artist_commentary_add_commentary_tag" />
+        Add <em>commentary</em> tag
+      </label>
+    </div>
+
+    <div class="input">
+      <label>
+        <input name="artist_commentary[remove_commentary_request_tag]" type="hidden" value="0" /><input type="checkbox" value="1" name="artist_commentary[remove_commentary_request_tag]" id="artist_commentary_remove_commentary_request_tag" />
+        Remove <em>commentary_request</em> tag
+      </label>
+    </div>
+
+    <div class="input">
+      <label>
+        <input name="artist_commentary[add_commentary_check_tag]" type="hidden" value="0" /><input type="checkbox" value="1" name="artist_commentary[add_commentary_check_tag]" id="artist_commentary_add_commentary_check_tag" />
+        Add <em>check_commentary</em> tag
+      </label>
+    </div>  
+
+    <div class="input">
+      <label>
+        <input name="artist_commentary[add_partial_commentary_tag]" type="hidden" value="0" /><input type="checkbox" value="1" name="artist_commentary[add_partial_commentary_tag]" id="artist_commentary_add_partial_commentary_tag" />
+        Add <em>partial_commentary</em> tag
+      </label>
+    </div>  
+</form>
+  </div>
+
+  <div id="add-to-favgroup-dialog" title="Add to favorite group" style="display: none;">
+    <p>Select a favorite group to add this post to:</p>
+
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+    $.post("https://isshiki.donmai.us/post_views", {
+      msg: "IjMxNDYwMDAsYzY5YzAyZjBmZDMxNDU1OTQ1ZjljOWNjMjZhMDFjODEi--edd0c76a67c69516ded2df724ae59679c22bea2dae9fb2939227bb7534ffa2f9"
+    });
+  });
+</script>
+
+
+
+
+
+
+  </div>
+
+  <footer id="page-footer">
+  Running Danbooru 
+    (<a href="https://github.com/r888888888/danbooru/commit/d0639afa6363f42447e61e5f25a89db20c1f8cc6">d0639afa6363f42447e61e5f25a89db20c1f8cc6</a>)
+  &ndash; <a href="/static/terms_of_service">Rules</a>
+  &ndash; <a href="/static/contact">Contact</a>
+    &ndash; <a href="/static/keyboard_shortcuts">Keyboard shortcuts available</a>
+</footer>
+
+</body>
+</html>
