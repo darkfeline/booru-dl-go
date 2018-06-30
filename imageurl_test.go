@@ -16,6 +16,7 @@ package dl
 
 import (
 	"fmt"
+	"net/url"
 	"os"
 	"path/filepath"
 	"testing"
@@ -41,7 +42,11 @@ func TestFindImageURL(t *testing.T) {
 			t.Errorf("Error opening test file: %s", err)
 			continue
 		}
-		got, err := findImageURL(c.url, f)
+		u, err := url.Parse(c.url)
+		if err != nil {
+			t.Fatalf("Error parsing URL %s: %s", c.url, err)
+		}
+		got, err := findImageURL(u, f)
 		if err != nil {
 			t.Errorf("findImageURL return error: %s", err)
 			continue

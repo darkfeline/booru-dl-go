@@ -16,67 +16,69 @@
 package dl
 
 import (
+	"fmt"
 	"io"
 	"net/http"
 	"net/url"
 	"os"
 	"path"
 	"path/filepath"
-
-	"github.com/pkg/errors"
 )
+
+func requestImage(rawurl string) (*http.Response, error) {
+	i, err := retrieveImageURL(rawurl)
+	if err != nil {
+		return nil, fmt.Errorf("get image URL: %s", err)
+	}
+	r, err := http.Get(i)
+	if err != nil {
+		return nil, err
+	}
+	if r.StatusCode != 200 {
+		_ = r.Body.Close()
+		return nil, fmt.Errorf("GET %s %s", rawurl, r.Status)
+	}
+	return r, nil
+}
+
+// WriteImage downloads the image from the booru URL and writes it to
+// the Writer.
+func WriteImage(rawurl string, w io.Writer) error {
+	r, err := requestImage(rawurl)
+	if err != nil {
+		return err
+	}
+	defer r.Body.Close()
+	_, err = io.Copy(w, r.Body)
+	return err
+}
 
 // Download downloads the image from the booru URL to the path.
 func Download(rawurl string, p string) error {
-	i, err := retrieveImageURL(rawurl)
+	r, err := requestImage(rawurl)
 	if err != nil {
-		return errors.Wrapf(err, "cannot find image URL for %s", rawurl)
+		return err
 	}
-	err = saveHTTP(i, p)
-	if err != nil {
-		return errors.Wrapf(err, "save %s to %s", i, p)
-	}
-	return nil
+	defer r.Body.Close()
+	return writeToFile(r.Body, p)
 }
 
 // DownloadToDir downloads the image from the booru URL to the
 // directory using a default filename.
 func DownloadToDir(rawurl string, dir string) error {
-	i, err := retrieveImageURL(rawurl)
+	r, err := requestImage(rawurl)
 	if err != nil {
-		return errors.Wrapf(err, "cannot find image URL for %s", rawurl)
+		return err
 	}
-	f, err := urlFilename(i)
-	if err != nil {
-		return errors.Wrapf(err, "cannot find filename for %s", i)
-	}
+	defer r.Body.Close()
+	f := urlFilename(r.Request.URL)
 	fp := filepath.Join(dir, f)
-	err = saveHTTP(i, fp)
-	if err != nil {
-		return errors.Wrapf(err, "save %s to %s", i, fp)
-	}
-	return nil
+	return writeToFile(r.Body, fp)
 }
 
 // urlFilename returns the filename to be used for saving the URL.
-func urlFilename(rawurl string) (string, error) {
-	u, err := url.Parse(rawurl)
-	if err != nil {
-		return "", errors.Wrap(err, "parse URL filename")
-	}
-	return path.Base(u.Path), nil
-}
-
-func saveHTTP(rawurl string, p string) error {
-	r, err := http.Get(rawurl)
-	if err != nil {
-		return errors.Wrapf(err, "getting %s", rawurl)
-	}
-	defer r.Body.Close()
-	if r.StatusCode != 200 {
-		return errors.Errorf("download %s: HTTP %d %s", rawurl, r.StatusCode, r.Status)
-	}
-	return writeToFile(r.Body, p)
+func urlFilename(u *url.URL) string {
+	return path.Base(u.Path)
 }
 
 func writeToFile(r io.Reader, p string) error {
@@ -85,8 +87,8 @@ func writeToFile(r io.Reader, p string) error {
 		return err
 	}
 	_, err = io.Copy(f, r)
-	if err1 := f.Close(); err == nil {
-		err = err1
+	if err2 := f.Close(); err == nil {
+		err = err2
 	}
 	return err
 }

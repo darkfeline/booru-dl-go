@@ -15,6 +15,7 @@
 package dl
 
 import (
+	"fmt"
 	"io"
 	"net/http"
 	"net/url"
@@ -23,32 +24,28 @@ import (
 	"github.com/pkg/errors"
 )
 
-// retrieveImageURL returns the image URL for the booru URL.
+// retrieveImageURL returns the image URL for the booru image URL.
 func retrieveImageURL(rawurl string) (string, error) {
 	r, err := http.Get(rawurl)
 	if err != nil {
-		return "", errors.Wrapf(err, "getting %s", rawurl)
+		return "", err
 	}
 	defer r.Body.Close()
 	if r.StatusCode != 200 {
-		return "", errors.Errorf("download %s: HTTP %d %s", rawurl, r.StatusCode, r.Status)
+		return "", fmt.Errorf("GET %s %s", rawurl, r.Status)
 	}
-	i, err := findImageURL(rawurl, r.Body)
+	i, err := findImageURL(r.Request.URL, r.Body)
 	if err != nil {
-		return "", errors.Wrapf(err, "cannot find image URL for %s", rawurl)
+		return "", err
 	}
 	return i, nil
 }
 
 // findImageURL returns the image URL for a booru page.
-func findImageURL(rawurl string, r io.Reader) (string, error) {
-	u, err := url.Parse(rawurl)
-	if err != nil {
-		return "", err
-	}
+func findImageURL(u *url.URL, r io.Reader) (string, error) {
 	d, err := goquery.NewDocumentFromReader(r)
 	if err != nil {
-		return "", errors.Wrapf(err, "cannot parse document %s", rawurl)
+		return "", err
 	}
 	switch u.Hostname() {
 	case "chan.sankakucomplex.com":
@@ -56,7 +53,7 @@ func findImageURL(rawurl string, r io.Reader) (string, error) {
 	case "danbooru.donmai.us":
 		return findDanbooruImageURL(u, d)
 	default:
-		return "", errors.Errorf("unknown booru %s", rawurl)
+		return "", fmt.Errorf("unknown booru %s", u)
 	}
 }
 
@@ -67,7 +64,7 @@ func findSankakuImageURL(u *url.URL, d *goquery.Document) (string, error) {
 	}
 	rel, err := url.Parse(src)
 	if err != nil {
-		return "", errors.Wrap(err, "parsing img src")
+		return "", err
 	}
 	i := u.ResolveReference(rel)
 	return i.String(), nil
@@ -81,9 +78,5 @@ func findDanbooruImageURL(u *url.URL, d *goquery.Document) (string, error) {
 			return "", errors.New("cannot find image URL")
 		}
 	}
-	u, err := url.Parse(src)
-	if err != nil {
-		return "", errors.Wrap(err, "parsing img src")
-	}
-	return u.String(), nil
+	return src, nil
 }
