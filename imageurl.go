@@ -17,7 +17,6 @@ package dl
 import (
 	"fmt"
 	"io"
-	"net/http"
 	"net/url"
 
 	"github.com/PuerkitoBio/goquery"
@@ -26,14 +25,11 @@ import (
 
 // retrieveImageURL returns the image URL for the booru image URL.
 func retrieveImageURL(rawurl string) (string, error) {
-	r, err := http.Get(rawurl)
+	r, err := httpGetWithRetry(rawurl)
 	if err != nil {
 		return "", err
 	}
 	defer r.Body.Close()
-	if r.StatusCode != 200 {
-		return "", fmt.Errorf("GET %s %s", rawurl, r.Status)
-	}
 	i, err := findImageURL(r.Request.URL, r.Body)
 	if err != nil {
 		return "", err

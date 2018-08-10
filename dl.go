@@ -28,15 +28,11 @@ import (
 func requestImage(rawurl string) (*http.Response, error) {
 	i, err := retrieveImageURL(rawurl)
 	if err != nil {
-		return nil, fmt.Errorf("get image URL: %s", err)
+		return nil, fmt.Errorf("get URL: %s", err)
 	}
-	r, err := http.Get(i)
+	r, err := httpGetWithRetry(i)
 	if err != nil {
-		return nil, err
-	}
-	if r.StatusCode != 200 {
-		_ = r.Body.Close()
-		return nil, fmt.Errorf("GET %s %s", rawurl, r.Status)
+		return nil, fmt.Errorf("get image: %s", err)
 	}
 	return r, nil
 }
