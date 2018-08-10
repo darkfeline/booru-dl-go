@@ -30,6 +30,7 @@ func httpGetWithRetry(rawurl string) (*http.Response, error) {
 		r, err = httpGet(rawurl)
 		if err != nil {
 			if isTemporary(err) {
+				time.Sleep(httpRetryInterval)
 				continue
 			}
 			return nil, err
