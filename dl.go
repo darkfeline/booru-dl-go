@@ -18,14 +18,16 @@ package dl
 import (
 	"fmt"
 	"io"
-	"net/http"
 	"net/url"
 	"os"
 	"path"
 	"path/filepath"
 )
 
-func requestImage(rawurl string) (*http.Response, error) {
+// RetrieveImage retrieves the image from the given URL.  This
+// function does magic to handle links to image boorus.  You must
+// close ImageData.Data if there is no error.
+func RetrieveImage(rawurl string) (*ImageData, error) {
 	i, err := retrieveImageURL(rawurl)
 	if err != nil {
 		return nil, fmt.Errorf("get image URL for %s: %s", rawurl, err)
@@ -34,42 +36,54 @@ func requestImage(rawurl string) (*http.Response, error) {
 	if err != nil {
 		return nil, fmt.Errorf("get image for %s: %s", rawurl, err)
 	}
-	return r, nil
+	d := &ImageData{
+		Data:    r.Body,
+		FileURL: r.Request.URL,
+	}
+	return d, nil
+}
+
+// ImageData contains the retrieved image data and metadata.
+type ImageData struct {
+	// Data is the image data.  You must close this.
+	Data io.ReadCloser
+	// URL is the URL of the image file.
+	FileURL *url.URL
 }
 
 // WriteImage downloads the image from the booru URL and writes it to
 // the Writer.
 func WriteImage(rawurl string, w io.Writer) error {
-	r, err := requestImage(rawurl)
+	d, err := RetrieveImage(rawurl)
 	if err != nil {
 		return err
 	}
-	defer r.Body.Close()
-	_, err = io.Copy(w, r.Body)
+	defer d.Data.Close()
+	_, err = io.Copy(w, d.Data)
 	return err
 }
 
 // Download downloads the image from the booru URL to the path.
 func Download(rawurl string, p string) error {
-	r, err := requestImage(rawurl)
+	d, err := RetrieveImage(rawurl)
 	if err != nil {
 		return err
 	}
-	defer r.Body.Close()
-	return writeToFile(r.Body, p)
+	defer d.Data.Close()
+	return writeToFile(d.Data, p)
 }
 
 // DownloadToDir downloads the image from the booru URL to the
 // directory using a default filename.
 func DownloadToDir(rawurl string, dir string) error {
-	r, err := requestImage(rawurl)
+	d, err := RetrieveImage(rawurl)
 	if err != nil {
 		return err
 	}
-	defer r.Body.Close()
-	f := urlFilename(r.Request.URL)
+	defer d.Data.Close()
+	f := urlFilename(d.FileURL)
 	fp := filepath.Join(dir, f)
-	return writeToFile(r.Body, fp)
+	return writeToFile(d.Data, fp)
 }
 
 // urlFilename returns the filename to be used for saving the URL.
