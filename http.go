@@ -40,7 +40,6 @@ func httpGetWithRetry(rawurl string) (*http.Response, error) {
 	return nil, err
 }
 
-var _ error = tooManyRequestsErr{}
 var _ temporaryErr = tooManyRequestsErr{}
 
 type tooManyRequestsErr struct{}
@@ -54,6 +53,7 @@ func (tooManyRequestsErr) Temporary() bool {
 }
 
 type temporaryErr interface {
+	error
 	Temporary() bool
 }
 
