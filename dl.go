@@ -51,18 +51,6 @@ type ImageData struct {
 	FileURL *url.URL
 }
 
-// WriteImage downloads the image from the booru URL and writes it to
-// the Writer.
-func WriteImage(rawurl string, w io.Writer) error {
-	d, err := RetrieveImage(rawurl)
-	if err != nil {
-		return err
-	}
-	defer d.Data.Close()
-	_, err = io.Copy(w, d.Data)
-	return err
-}
-
 // Download downloads the image from the booru URL to the path.
 func Download(rawurl string, p string) error {
 	d, err := RetrieveImage(rawurl)
