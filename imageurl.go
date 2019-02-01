@@ -20,7 +20,7 @@ import (
 	"net/url"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/pkg/errors"
+	"golang.org/x/xerrors"
 )
 
 // retrieveImageURL returns the image URL for the booru image URL.
@@ -56,7 +56,7 @@ func findImageURL(u *url.URL, r io.Reader) (string, error) {
 func findSankakuImageURL(u *url.URL, d *goquery.Document) (string, error) {
 	src, ok := d.Find("#highres").Attr("href")
 	if !ok {
-		return "", errors.New("cannot find image URL")
+		return "", xerrors.New("cannot find image URL")
 	}
 	rel, err := url.Parse(src)
 	if err != nil {
@@ -71,7 +71,7 @@ func findDanbooruImageURL(u *url.URL, d *goquery.Document) (string, error) {
 	if !ok {
 		src, ok = d.Find("#image").Attr("src")
 		if !ok {
-			return "", errors.New("cannot find image URL")
+			return "", xerrors.New("cannot find image URL")
 		}
 	}
 	return src, nil
